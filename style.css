@@ -1,0 +1,70 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0c0c0c;
+    color: white;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 30px;
+    background: #101820;
+}
+
+.logo {
+    width: 120px;
+    margin-bottom: 10px;
+}
+
+.tagline {
+    font-size: 18px;
+    opacity: 0.8;
+}
+
+/* News Section */
+.news-section {
+    padding: 40px 20px;
+}
+
+.news-columns {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.news-box {
+    width: 320px;
+    background: #171f2a;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.news-list a {
+    display: block;
+    padding: 8px;
+    margin-bottom: 6px;
+    border-bottom: 1px solid #333;
+    text-decoration: none;
+    color: #4bb3fd;
+}
+
+.news-list a:hover {
+    color: white;
+}
+
+/* Kursus */
+.kursus {
+    padding: 40px;
+    text-align: center;
+    background: #111;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #080808;
+    opacity: 0.7;
+}
