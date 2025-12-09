@@ -1,8 +1,26 @@
-// public/firebase.js (modular)
+// =========================
+// Firebase Modular v12
+// =========================
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
-import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
-import { getFirestore } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
-import { getStorage } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-storage.js";
+import { 
+  getAuth, 
+  onAuthStateChanged, 
+  GoogleAuthProvider,
+  PhoneAuthProvider,
+  EmailAuthProvider,
+  signOut
+} from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
+import { 
+  getFirestore 
+} from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
+import { 
+  getStorage 
+} from "https://www.gstatic.com/firebasejs/12.6.0/firebase-storage.js";
+
+// =========================
+// CONFIG KAMU
+// =========================
 
 const firebaseConfig = {
   apiKey: "AIzaSyBfZa9Xp3gNV7QscwAYBXkJBtlYr2IyYwY",
@@ -14,12 +32,23 @@ const firebaseConfig = {
   measurementId: "G-DBLJVSXJLD"
 };
 
+// Init
 const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app); // exported for app.js to import
-export const db = getFirestore(app);
-export const storage = getStorage(app);
+const auth = getAuth(app);
+const db = getFirestore(app);
+const storage = getStorage(app);
 
-// Expose to window for compatibility with firebase-ui-auth script
-window.firebaseAuth = auth;
-window.firebaseDB = db;
-window.firebaseStorage = storage;
+// Providers
+const googleProvider = new GoogleAuthProvider();
+const phoneProvider = new PhoneAuthProvider();
+const emailProvider = new EmailAuthProvider();
+
+// Expose global
+window.scieduAuth = auth;
+window.scieduDB = db;
+window.scieduStorage = storage;
+window.googleProvider = googleProvider;
+window.phoneProvider = phoneProvider;
+window.emailProvider = emailProvider;
+window.onAuthStateChanged = onAuthStateChanged;
+window.signOut = signOut;
