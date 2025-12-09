@@ -1,81 +1,78 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Sciedutech.id – Growth and Create</title>
 
-  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Firebase UI NOT USED ANYMORE -->
 </head>
 <body>
 
 <header>
   <img src="assets/logo.png" class="logo" alt="Sciedutech Logo">
-
   <nav>
     <a href="#courses">Kursus</a>
     <a href="#voucher">Voucher</a>
     <a href="#history">Riwayat</a>
 
-    <span id="userArea">
-      <button id="openLogin" class="btn small">Masuk / Daftar</button>
-    </span>
+    <!-- AREA LOGIN -->
+    <span id="userArea"></span>
   </nav>
 </header>
 
 <div class="container">
+
   <h1>Sciedutech.id</h1>
   <p class="muted">Growth and Create — integrasi Sains, Matematika, Kripto & Blockchain.</p>
 
-  <!-- ========================================================= -->
-  <!-- CUSTOM AUTH MODAL (BUKAN FirebaseUI) -->
-  <!-- ========================================================= -->
-  <div id="authModal" class="hidden modal-overlay">
-
-    <div class="modal-box">
-
+  <!-- ========================================= -->
+  <!-- ============ AUTH MODAL ================= -->
+  <!-- ========================================= -->
+  <div id="authModal" class="hidden">
+    <div class="box">
       <h3 id="authTitle">Masuk</h3>
 
-      <div id="authForm">
-        
-        <input type="email" id="emailInput" placeholder="Email" />
-        <input type="password" id="passwordInput" placeholder="Password" />
+      <!-- FORM EMAIL -->
+      <form id="authForm">
+        <input id="emailInput" type="email" placeholder="Email">
+        <input id="passwordInput" type="password" placeholder="Password">
+        <button id="authSubmit" class="btn" type="button">Masuk</button>
+        <p id="toggleMode" class="clickable small">Belum punya akun? Daftar di sini</p>
+        <p id="authMessage" class="muted small"></p>
+      </form>
 
-        <button id="authSubmit" class="btn full">Masuk</button>
+      <!-- GOOGLE LOGIN -->
+      <button id="googleLogin" class="btn" style="margin-top:10px;background:#fff;color:#000;">
+        Login dengan Google
+      </button>
 
-        <p id="toggleMode" class="link">
-          Belum punya akun? Daftar di sini
-        </p>
-
-        <hr style="margin:12px 0; opacity:0.3">
-
-        <button id="googleLogin" class="btn full">Masuk dengan Google</button>
-        <button id="phoneLogin" class="btn full">Masuk dengan Nomor HP</button>
-      </div>
+      <!-- PHONE LOGIN -->
+      <button id="phoneLogin" class="btn" style="margin-top:10px;">Login dengan Nomor HP</button>
 
       <!-- PHONE UI -->
-      <div id="phoneUI" class="hidden">
-        <input type="tel" id="phoneInput" placeholder="+62xxxxxxxx" />
+      <div id="phoneUI" class="hidden" style="margin-top:15px;">
+        <input id="phoneInput" placeholder="+62xxxxxxxxxx">
+        <button id="sendOtp" class="btn" type="button">Kirim OTP</button>
         <div id="recaptcha-container"></div>
-        <button id="sendOtp" class="btn full">Kirim OTP</button>
 
-        <div id="otpSection" class="hidden">
-          <input type="text" id="otpInput" placeholder="Masukkan OTP" />
-          <button id="verifyOtp" class="btn full">Verifikasi OTP</button>
+        <div id="otpSection" class="hidden" style="margin-top:10px;">
+          <input id="otpInput" placeholder="Kode OTP">
+          <button id="verifyOtp" class="btn">Verifikasi OTP</button>
         </div>
 
-        <p id="backToEmail" class="link">Kembali ke login email</p>
+        <p id="backToEmail" class="clickable small" style="margin-top:15px;">Kembali ke Login Email</p>
       </div>
 
-      <button id="closeAuth" class="btn red full">Tutup</button>
-      <div id="authMessage"></div>
-
+      <button id="closeAuth" class="btn red" style="margin-top:20px;">Tutup</button>
     </div>
-
   </div>
-  <!-- ========================================================= -->
 
-  <!-- KELAS -->
+  <!-- ========================================= -->
+  <!-- ============ COURSE SECTION ============= -->
+  <!-- ========================================= -->
   <section id="courses" class="courses">
     <div class="card">
       <h3>Sains</h3>
@@ -98,21 +95,25 @@
     </div>
   </section>
 
-  <!-- REDEEM -->
+  <!-- ========================================= -->
+  <!-- ============ VOUCHER SECTION ============ -->
+  <!-- ========================================= -->
   <section id="voucher" style="margin-top:30px">
     <div class="card">
       <h3>Redeem Kode Akses</h3>
-      <input id="redeemCode" placeholder="Kode akses" />
+      <input id="redeemCode" placeholder="Kode Akses">
       <button id="redeemBtn" class="btn">Gunakan Kode</button>
-      <div id="redeemResult"></div>
+      <div id="redeemResult" class="muted small"></div>
     </div>
   </section>
 
-  <!-- PEMBELIAN -->
+  <!-- ========================================= -->
+  <!-- ============ BUY SECTION ================ -->
+  <!-- ========================================= -->
   <section style="margin-top:30px">
     <div class="card">
       <h3>Beli Akses Modul</h3>
-      <p class="muted">Satu modul / kelas: <strong>Rp 3.000</strong></p>
+      <p class="muted">Satu modul: <strong>Rp 3.000</strong></p>
 
       <select id="buyCourse">
         <option value="sains">Sains</option>
@@ -122,11 +123,13 @@
       </select>
 
       <button id="buyBtn" class="btn">Beli Sekarang</button>
-      <div id="buyResult"></div>
+      <div id="buyResult" class="muted small"></div>
     </div>
   </section>
 
-  <!-- RIWAYAT PUBLIK -->
+  <!-- ========================================= -->
+  <!-- ============ HISTORY ==================== -->
+  <!-- ========================================= -->
   <section id="history" style="margin-top:30px">
     <div class="card">
       <h3>Riwayat Akses</h3>
@@ -138,7 +141,9 @@
     </div>
   </section>
 
-  <!-- LINKS -->
+  <!-- ========================================= -->
+  <!-- ============ LINKS ======================= -->
+  <!-- ========================================= -->
   <section style="margin-top:30px">
     <div class="card">
       <h3>Saluran Resmi</h3>
@@ -151,7 +156,15 @@
 
 <footer>© 2025 Sciedutech.id — Growth and Create</footer>
 
+
+<!-- ============================== -->
+<!--  FIREBASE INITIALIZATION      -->
+<!-- ============================== -->
 <script type="module" src="firebase.js"></script>
+
+<!-- ============================== -->
+<!--  APP LOGIC                    -->
+<!-- ============================== -->
 <script type="module" src="app.js"></script>
 
 </body>
