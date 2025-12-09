@@ -6,7 +6,6 @@
   <title>Sciedutech.id – Growth and Create</title>
 
   <link rel="stylesheet" href="style.css"/>
-  <link rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.0/firebase-ui.css" />
 </head>
 <body>
 
@@ -19,7 +18,7 @@
     <a href="#history">Riwayat</a>
 
     <span id="userArea">
-      <button id="loginBtn" class="btn small">Masuk / Daftar</button>
+      <button id="openLogin" class="btn small">Masuk / Daftar</button>
     </span>
   </nav>
 </header>
@@ -28,46 +27,78 @@
   <h1>Sciedutech.id</h1>
   <p class="muted">Growth and Create — integrasi Sains, Matematika, Kripto & Blockchain.</p>
 
-  <!-- ======================== -->
-  <!-- MODAL LOGIN (FIXED) -->
-  <!-- ======================== -->
+  <!-- ========================================================= -->
+  <!-- CUSTOM AUTH MODAL (BUKAN FirebaseUI) -->
+  <!-- ========================================================= -->
   <div id="authModal" class="hidden modal-overlay">
+
     <div class="modal-box">
-      <h3>Masuk / Daftar</h3>
 
-      <div id="firebaseui-auth-container"></div>
+      <h3 id="authTitle">Masuk</h3>
 
-      <button id="closeAuth" class="btn">Tutup</button>
+      <div id="authForm">
+        
+        <input type="email" id="emailInput" placeholder="Email" />
+        <input type="password" id="passwordInput" placeholder="Password" />
+
+        <button id="authSubmit" class="btn full">Masuk</button>
+
+        <p id="toggleMode" class="link">
+          Belum punya akun? Daftar di sini
+        </p>
+
+        <hr style="margin:12px 0; opacity:0.3">
+
+        <button id="googleLogin" class="btn full">Masuk dengan Google</button>
+        <button id="phoneLogin" class="btn full">Masuk dengan Nomor HP</button>
+      </div>
+
+      <!-- PHONE UI -->
+      <div id="phoneUI" class="hidden">
+        <input type="tel" id="phoneInput" placeholder="+62xxxxxxxx" />
+        <div id="recaptcha-container"></div>
+        <button id="sendOtp" class="btn full">Kirim OTP</button>
+
+        <div id="otpSection" class="hidden">
+          <input type="text" id="otpInput" placeholder="Masukkan OTP" />
+          <button id="verifyOtp" class="btn full">Verifikasi OTP</button>
+        </div>
+
+        <p id="backToEmail" class="link">Kembali ke login email</p>
+      </div>
+
+      <button id="closeAuth" class="btn red full">Tutup</button>
+      <div id="authMessage"></div>
+
     </div>
-  </div>
-  <!-- ======================== -->
 
+  </div>
+  <!-- ========================================================= -->
+
+  <!-- KELAS -->
   <section id="courses" class="courses">
     <div class="card">
       <h3>Sains</h3>
-      <div id="sainsList"></div>
       <button class="btn openCourse" data-course="sains">Buka Kelas Sains</button>
     </div>
 
     <div class="card">
       <h3>Matematika</h3>
-      <div id="matList"></div>
       <button class="btn openCourse" data-course="matematika">Buka Kelas Matematika</button>
     </div>
 
     <div class="card">
       <h3>Kripto</h3>
-      <div id="kriptoList"></div>
       <button class="btn openCourse" data-course="kripto">Buka Kelas Kripto</button>
     </div>
 
     <div class="card">
       <h3>Blockchain</h3>
-      <div id="blockList"></div>
       <button class="btn openCourse" data-course="blockchain">Buka Kelas Blockchain</button>
     </div>
   </section>
 
+  <!-- REDEEM -->
   <section id="voucher" style="margin-top:30px">
     <div class="card">
       <h3>Redeem Kode Akses</h3>
@@ -77,6 +108,7 @@
     </div>
   </section>
 
+  <!-- PEMBELIAN -->
   <section style="margin-top:30px">
     <div class="card">
       <h3>Beli Akses Modul</h3>
@@ -94,6 +126,7 @@
     </div>
   </section>
 
+  <!-- RIWAYAT PUBLIK -->
   <section id="history" style="margin-top:30px">
     <div class="card">
       <h3>Riwayat Akses</h3>
@@ -105,6 +138,7 @@
     </div>
   </section>
 
+  <!-- LINKS -->
   <section style="margin-top:30px">
     <div class="card">
       <h3>Saluran Resmi</h3>
@@ -118,7 +152,6 @@
 <footer>© 2025 Sciedutech.id — Growth and Create</footer>
 
 <script type="module" src="firebase.js"></script>
-<script src="https://www.gstatic.com/firebasejs/ui/6.0.0/firebase-ui-auth.js"></script>
 <script type="module" src="app.js"></script>
 
 </body>
