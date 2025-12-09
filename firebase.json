@@ -1,0 +1,23 @@
+{
+  "hosting": {
+    "public": "public",
+    "rewrites": [
+      {
+        "source": "/createCheckoutSession",
+        "function": "createCheckoutSession"
+      },
+      {
+        "source": "/redeemCode",
+        "function": "redeemCode"
+      },
+      {
+        "source": "/stripeWebhook",
+        "function": "stripeWebhook"
+      },
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

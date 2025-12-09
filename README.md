@@ -1,4 +1,3 @@
-[README.md](https://github.com/user-attachments/files/24053305/README.md)
 
 Sciedutech.id - Ready-to-deploy bundle
 =====================================
