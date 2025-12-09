@@ -6,20 +6,18 @@
   <title>Sciedutech.id – Growth and Create</title>
 
   <link rel="stylesheet" href="style.css"/>
-
-  <!-- FirebaseUI v6 (Modular) CSS -->
   <link rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.0/firebase-ui.css" />
 </head>
 <body>
 
 <header>
   <img src="assets/logo.png" class="logo" alt="Sciedutech Logo">
+
   <nav>
     <a href="#courses">Kursus</a>
     <a href="#voucher">Voucher</a>
     <a href="#history">Riwayat</a>
 
-    <!-- Tombol login/logout -->
     <span id="userArea">
       <button id="loginBtn" class="btn small">Masuk / Daftar</button>
     </span>
@@ -30,16 +28,20 @@
   <h1>Sciedutech.id</h1>
   <p class="muted">Growth and Create — integrasi Sains, Matematika, Kripto & Blockchain.</p>
 
-  <!-- MODAL LOGIN (default: hidden) -->
-  <div id="authModal" class="hidden modal">
-    <div class="box">
+  <!-- ======================== -->
+  <!-- MODAL LOGIN (FIXED) -->
+  <!-- ======================== -->
+  <div id="authModal" class="hidden modal-overlay">
+    <div class="modal-box">
       <h3>Masuk / Daftar</h3>
+
       <div id="firebaseui-auth-container"></div>
+
       <button id="closeAuth" class="btn">Tutup</button>
     </div>
   </div>
+  <!-- ======================== -->
 
-  <!-- KELAS -->
   <section id="courses" class="courses">
     <div class="card">
       <h3>Sains</h3>
@@ -66,7 +68,6 @@
     </div>
   </section>
 
-  <!-- REDEEM -->
   <section id="voucher" style="margin-top:30px">
     <div class="card">
       <h3>Redeem Kode Akses</h3>
@@ -76,7 +77,6 @@
     </div>
   </section>
 
-  <!-- PEMBELIAN -->
   <section style="margin-top:30px">
     <div class="card">
       <h3>Beli Akses Modul</h3>
@@ -94,7 +94,6 @@
     </div>
   </section>
 
-  <!-- RIWAYAT PUBLIK -->
   <section id="history" style="margin-top:30px">
     <div class="card">
       <h3>Riwayat Akses</h3>
@@ -106,7 +105,21 @@
     </div>
   </section>
 
-  <!-- LINK CHANNEL -->
   <section style="margin-top:30px">
     <div class="card">
-      <h3
+      <h3>Saluran Resmi</h3>
+      <p><a id="waLink" href="#" target="_blank">Whatsapp Channel</a></p>
+      <p><a id="tgLink" href="#" target="_blank">Telegram Channel</a></p>
+    </div>
+  </section>
+
+</div>
+
+<footer>© 2025 Sciedutech.id — Growth and Create</footer>
+
+<script type="module" src="firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/ui/6.0.0/firebase-ui-auth.js"></script>
+<script type="module" src="app.js"></script>
+
+</body>
+</html>
