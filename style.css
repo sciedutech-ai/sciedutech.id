@@ -1,16 +1,152 @@
+/* ===========================
+   RESET & BASE
+=========================== */
+* { 
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+  font-family: 'Poppins', sans-serif; 
+}
 
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-body { background: #0d0d0d; color: #fff; overflow-x: hidden; }
-header { padding: 20px 40px; display:flex; justify-content:space-between; align-items:center; background:#000; border-bottom:1px solid #222; }
+body { 
+  background: #0d0d0d; 
+  color: #fff; 
+  overflow-x: hidden; 
+}
+
+/* ===========================
+   HEADER
+=========================== */
+header { 
+  padding: 20px 40px; 
+  display:flex; 
+  justify-content:space-between; 
+  align-items:center; 
+  background:#000; 
+  border-bottom:1px solid #222; 
+}
+
 .logo { width: 80px; }
-nav a { margin-left: 25px; text-decoration:none; color:#ccc; font-weight:400; }
-.container { max-width: 1000px; margin: auto; padding: 40px 20px; }
+
+nav a { 
+  margin-left: 25px; 
+  text-decoration:none; 
+  color:#ccc; 
+  font-weight:400; 
+}
+
+nav a:hover { color:#fff; }
+
+.btn.small {
+  padding: 6px 10px;
+  font-size: 14px;
+}
+
+/* ===========================
+   CONTAINER & CARD
+=========================== */
+.container { 
+  max-width: 1000px; 
+  margin: auto; 
+  padding: 40px 20px; 
+}
+
 h1 { font-size: 32px; margin-bottom: 6px; }
-.muted { color:#aaa; margin-bottom: 8px; }
-.courses { margin-top: 20px; display:grid; grid-template-columns: repeat(2,1fr); gap:20px; }
-.card { background:#111; padding:18px; border-radius:10px; border:1px solid #222; }
-.btn { padding: 10px 14px; background:#4fa3ff; border:none; border-radius:8px; cursor:pointer; color:#000; font-weight:600; }
-.hidden { display:none; }
-#authModal { position:fixed; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(0,0,0,0.6); }
-#authModal .box { background:#0b0b0b; padding:20px; border-radius:8px; border:1px solid #222; width:360px; }
-input, select { width:100%; padding:10px; border-radius:6px; border:none; margin-top:8px; }
+
+.muted { 
+  color:#aaa; 
+  margin-bottom: 8px; 
+}
+
+.courses { 
+  margin-top: 20px; 
+  display:grid; 
+  grid-template-columns: repeat(2,1fr); 
+  gap:20px; 
+}
+
+.card { 
+  background:#111; 
+  padding:18px; 
+  border-radius:10px; 
+  border:1px solid #222; 
+}
+
+/* ===========================
+   BUTTON
+=========================== */
+.btn { 
+  padding: 10px 14px; 
+  background:#4fa3ff; 
+  border:none; 
+  border-radius:8px; 
+  cursor:pointer; 
+  color:#000; 
+  font-weight:600; 
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+
+.btn.red {
+  background: #ff5353;
+  color: #fff;
+}
+
+/* ===========================
+   INPUT
+=========================== */
+input, select { 
+  width:100%; 
+  padding:10px; 
+  border-radius:6px; 
+  border:none; 
+  margin-top:8px; 
+  background:#1b1b1b;
+  color:#fff;
+}
+
+/* ===========================
+   MODAL LOGIN (FIX)
+=========================== */
+
+/* Modal overlay */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+}
+
+/* Modal box */
+.modal-box {
+  width: 360px;
+  background: #111;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #333;
+  position: relative;
+  z-index: 100000;
+}
+
+/* Tutup modal secara PAKSA */
+.hidden {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* ===========================
+   FOOTER
+=========================== */
+footer {
+  text-align: center;
+  padding: 30px;
+  color: #888;
+  font-size: 14px;
+}
