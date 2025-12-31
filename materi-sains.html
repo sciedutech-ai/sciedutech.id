@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Materi Sains</title>
+</head>
+<body>
+
+<h1>Materi Kelas Sains</h1>
+<p>Selamat belajar 🚀</p>
+
+<script type="module">
+  import { auth } from "./js/firebase.js";
+  import { onAuthStateChanged } from
+    "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+  import { getFirestore, doc, getDoc } from
+    "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+  const db = getFirestore();
+
+  onAuthStateChanged(auth, async (user) => {
+    if (!user) {
+      location.href = "login.html";
+      return;
+    }
+
+    const snap = await getDoc(doc(db, "users", user.uid));
+    if (!snap.exists() || !(snap.data().kelas || []).includes("sains")) {
+      alert("Anda tidak memiliki akses kelas ini");
+      location.href = "kelas-sains.html";
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Kelas Blockchain | Sciedutech.id</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{
+      font-family:'Inter',sans-serif;
+      background:#020617;
+      color:#e5e7eb;
+      line-height:1.7
+    }
+    .container{
+      max-width:1150px;
+      margin:auto;
+      padding:80px 24px
+    }
+    h1{
+      font-size:44px;
+      font-weight:800;
+      text-align:center
+    }
+    .tagline{
+      text-align:center;
+      margin-top:16px;
+      font-size:18px;
+      color:#c7d2fe
+    }
+    .badges{
+      text-align:center;
+      margin-top:28px
+    }
+    .badge{
+      display:inline-block;
+      margin:6px;
+      padding:8px 14px;
+      border-radius:999px;
+      background:rgba(16,185,129,.15);
+      border:1px solid rgba(16,185,129,.35);
+      font-size:14px
+    }
+    .section{
+      margin-top:90px
+    }
+    .section h2{
+      font-size:32px;
+      font-weight:800;
+      margin-bottom:24px
+    }
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:24px
+    }
+    .card{
+      background:rgba(15,23,42,.7);
+      border:1px solid rgba(148,163,184,.15);
+      border-radius:20px;
+      padding:28px
+    }
+    .level{
+      font-size:14px;
+      font-weight:700;
+      color:#34d399;
+      margin-bottom:10px
+    }
+    ul{margin-left:18px}
+    li{margin-bottom:8px;color:#cbd5f5}
+    table{
+      width:100%;
+      border-collapse:collapse;
+      margin-top:20px
+    }
+    th,td{
+      padding:14px;
+      border-bottom:1px solid rgba(148,163,184,.2)
+    }
+    th{color:#6ee7b7;text-align:left}
+    .center{
+      text-align:center;
+      margin-top:60px
+    }
+    button{
+      padding:16px 30px;
+      border-radius:14px;
+      border:none;
+      font-size:16px;
+      font-weight:700;
+      cursor:pointer;
+      background:#10b981;
+      color:#020617
+    }
+    #statusText{
+      text-align:center;
+      margin-top:40px;
+      font-size:16px;
+      color:#94a3b8
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <h1>Kelas blockchain (dasar → lanjut) – Sciedutech.id</h1>
+  <p class="tagline">
+    <em>Understand the Protocol. Build the System. Shape the Future.</em>
+  </p>
+
+  <div class="badges">
+    <span class="badge">Pemula → Menengah → Lanjut</span>
+    <span class="badge">Durasi 16 Minggu</span>
+    <span class="badge">Coding • Lab • dApp • AI Assistant</span>
+  </div>
+
+  <!-- STATUS TOKEN -->
+  <p id="statusText">Memeriksa akses...</p>
+
+  <!-- JIKA SUDAH PUNYA TOKEN -->
+  <div id="aksesKelas" class="center" style="display:none;">
+    <a href="materi-blockchain.html">
+      <button>Masuk Kelas</button>
+    </a>
+  </div>
+
+  <!-- JIKA BELUM PUNYA TOKEN -->
+  <div id="beliKelas" class="center" style="display:none;">
+    <a href="https://app.midtrans.com/payment-links/1766017753539" target="_blank">
+      <button>Beli Kelas Blockchain</button>
+    </a>
+  </div>
+
+  <!-- TUJUAN -->
+  <div class="section">
+    <h2>🎯 Tujuan Pembelajaran</h2>
+    <div class="grid">
+      <div class="card">
+        <ul>
+          <li>Memahami blockchain dari level protokol</li>
+          <li>Membedakan jenis blockchain</li>
+          <li>Mengembangkan smart contract</li>
+        </ul>
+      </div>
+      <div class="card">
+        <ul>
+          <li>Keamanan & konsensus</li>
+          <li>Membangun dApp end-to-end</li>
+          <li>Siap masuk ekosistem Web3</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- KURIKULUM -->
+  <div class="section">
+    <h2>🧠 Kurikulum (16 Minggu)</h2>
+    <div class="grid">
+      <div class="card">
+        <div class="level">LEVEL 1 — DASAR</div>
+        <ul>
+          <li>Blockchain & Kriptografi</li>
+          <li>Struktur Block & Konsensus</li>
+          <li>Bitcoin vs Ethereum</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="level">LEVEL 2 — MENENGAH</div>
+        <ul>
+          <li>Platform Blockchain</li>
+          <li>Smart Contract (Solidity)</li>
+          <li>Token & Wallet</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="level">LEVEL 3 — LANJUT</div>
+        <ul>
+          <li>dApp Development</li>
+          <li>DeFi & DAO</li>
+          <li>Security & Layer-2</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- LAB -->
+  <div class="section">
+    <h2>🧪 Lab & Praktik</h2>
+    <div class="grid">
+      <div class="card"><ul>
+        <li>Testnet deployment</li>
+        <li>Smart contract coding</li>
+        <li>dApp interaction</li>
+      </ul></div>
+      <div class="card"><ul>
+        <li>Security testing</li>
+        <li>DAO simulation</li>
+        <li>End-to-end project</li>
+      </ul></div>
+    </div>
+  </div>
+
+  <!-- AI -->
+  <div class="section">
+    <h2>🤖 Integrasi AI</h2>
+    <div class="grid">
+      <div class="card"><ul>
+        <li>AI Code Assistant</li>
+        <li>AI Smart Contract Reviewer</li>
+      </ul></div>
+      <div class="card"><ul>
+        <li>AI Security Analyzer</li>
+        <li>AI Learning Path Generator</li>
+      </ul></div>
+    </div>
+  </div>
+
+  <!-- EVALUASI -->
+  <div class="section">
+    <h2>🏅 Sistem Evaluasi</h2>
+    <table>
+      <tr><th>Komponen</th><th>Bobot</th></tr>
+      <tr><td>Kuis</td><td>20%</td></tr>
+      <tr><td>Lab & Coding</td><td>30%</td></tr>
+      <tr><td>Proyek Akhir</td><td>40%</td></tr>
+      <tr><td>Partisipasi</td><td>10%</td></tr>
+    </table>
+  </div>
+
+  <!-- SERTIFIKASI -->
+  <div class="section">
+    <h2>🎓 Sertifikasi</h2>
+    <div class="card">
+      <ul>
+        <li>Sertifikat “Blockchain Developer – Sciedutech.id”</li>
+        <li>Portfolio GitHub / dApp</li>
+        <li>Digital Credential</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<!-- SCRIPT TOKEN -->
+<script type="module" src="js/kelas-blockchain.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sciedutech.id</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+/* ===== RESET ===== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: #020617;
+  color: #fff;
+  overflow-x: hidden;
+}
+a { text-decoration: none; color: inherit; }
+
+/* ===== BACKGROUND FOTO (15%) ===== */
+.bg-photo {
+  position: fixed;
+  inset: 0;
+  background: url("assets/BG.jpg") center / cover no-repeat;
+  opacity: 0.1;
+  z-index: -3;
+}
+
+
+
+/* ===== NAVBAR ===== */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(2,6,23,.55);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(148,163,184,.1);
+  z-index: 100;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.brand img { width: 34px; }
+.brand .id { color: #1A69FF; }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  font-size: 14px;
+  color: #cbd5f5;
+}
+
+.nav-links a:hover { color: #fff; }
+
+.nav-btn {
+  padding: 10px 22px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #2563eb, #1A69FF);
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 0 25px rgba(37,99,235,.45);
+}
+
+/* ===== HERO ===== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 140px 20px 40px;
+}
+
+.hero-inner { max-width: 980px; }
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 22px;
+  border-radius: 999px;
+  background: rgba(30,58,138,.35);
+  border: 1px solid rgba(59,130,246,.35);
+  color: #93c5fd;
+  font-size: 14px;
+  margin-bottom: 26px;
+}
+
+.hero h1 {
+  font-size: 64px;
+  font-weight: 900;
+  letter-spacing: -2px;
+  margin-bottom: 18px;
+}
+
+.hero h2 {
+  font-size: 64px;
+  font-weight: 900;
+  letter-spacing: -2px;
+  background: linear-gradient(90deg, #2563eb, #9333ea);
+  -webkit-background-clip: text;
+  color: transparent;
+  margin-bottom: 28px;
+}
+
+.hero p {
+  max-width: 760px;
+  margin: 0 auto 46px;
+  font-size: 18px;
+  line-height: 1.7;
+  color: #cbd5f5;
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+}
+
+.btn-primary {
+  padding: 16px 34px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #2563eb, #1A69FF);
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 0 0 40px rgba(37,99,235,.55);
+}
+
+.btn-outline {
+  padding: 16px 34px;
+  border-radius: 14px;
+  border: 1px solid rgba(148,163,184,.35);
+  color: #fff;
+}
+
+/* ===== OUR CLASSES ===== */
+.classes-section {
+  padding: 120px 60px;
+}
+
+.classes-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 64px;
+}
+
+.classes-label {
+  color: #3b82f6;
+  font-size: 14px;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+.classes-header h2 {
+  font-size: 48px;
+  font-weight: 800;
+  margin-top: 12px;
+}
+
+.classes-desc {
+  max-width: 360px;
+  text-align: right;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #cbd5f5;
+}
+
+.classes-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 28px;
+}
+
+.class-card {
+  background: rgba(15,23,42,.6);
+  backdrop-filter: blur(18px);
+  border-radius: 18px;
+  padding: 32px 26px;
+  border: 1px solid rgba(148,163,184,.15);
+  display: flex;
+  flex-direction: column;
+  min-height: 300px;
+  transition: all .35s ease;
+}
+
+.class-card:hover {
+  transform: translateY(-10px);
+  border-color: rgba(99,102,241,.5);
+  box-shadow: 0 20px 50px rgba(59,130,246,.15);
+}
+
+.class-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #6366f1, #9333ea);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  margin-bottom: 26px;
+}
+
+.class-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.class-card p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #cbd5f5;
+  margin-bottom: auto;
+}
+
+.class-card button {
+  margin-top: 28px;
+  padding: 12px;
+  border-radius: 12px;
+  background: transparent;
+  border: 1px solid rgba(148,163,184,.25);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+.class-card button:hover {
+  background: linear-gradient(135deg, #2563eb, #1A69FF);
+  border-color: transparent;
+  box-shadow: 0 0 25px rgba(37,99,235,.45);
+}
+
+
+/* ===== OUR SERVICES ===== */
+.services-section {
+  padding: 140px 60px;
+  text-align: center;
+}
+
+.services-section h2 {
+  font-size: 44px;
+  font-weight: 800;
+  margin-bottom: 14px;
+}
+
+.services-subtitle {
+  font-size: 16px;
+  color: #cbd5f5;
+  margin-bottom: 80px;
+}
+
+/* GRID */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 36px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.services-grid.secondary {
+  margin-top: 36px;
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 820px;
+}
+
+/* CARD */
+.service-card {
+  background: rgba(15,23,42,.6);
+  backdrop-filter: blur(18px);
+  border-radius: 22px;
+  padding: 36px 34px;
+  border: 1px solid rgba(148,163,184,.12);
+  text-align: left;
+  transition: all .35s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  border-color: rgba(147,51,234,.45);
+  box-shadow: 0 20px 60px rgba(147,51,234,.15);
+}
+
+/* ICON */
+.service-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(147,51,234,.22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: #c084fc;
+  margin-bottom: 22px;
+}
+
+/* TITLE */
+.service-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+/* DESC */
+.service-card p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #cbd5f5;
+}
+
+/* ===== CONTACT / GET IN TOUCH ===== */
+.contact-section {
+  padding: 140px 60px;
+}
+
+.contact-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.contact-header h2 {
+  font-size: 48px;
+  font-weight: 800;
+  margin-bottom: 18px;
+}
+
+.contact-header p {
+  font-size: 18px;
+  color: #cbd5f5;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 60px;
+  align-items: flex-start;
+}
+
+/* LEFT INFO */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.contact-item {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.contact-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  background: linear-gradient(135deg, #2563eb, #9333ea);
+  box-shadow: 0 0 30px rgba(99,102,241,.45);
+}
+
+.contact-item h4 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.contact-item p {
+  font-size: 15px;
+  color: #cbd5f5;
+  margin-bottom: 6px;
+}
+
+.contact-item a {
+  color: #3b82f6;
+  font-weight: 600;
+}
+
+/* FORM */
+.contact-form {
+  background: rgba(15,23,42,.6);
+  backdrop-filter: blur(18px);
+  border-radius: 22px;
+  padding: 36px;
+  border: 1px solid rgba(148,163,184,.15);
+}
+
+.contact-form label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #e5e7eb;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  background: rgba(2,6,23,.8);
+  border: 1px solid rgba(148,163,184,.2);
+  border-radius: 12px;
+  padding: 14px 16px;
+  color: #fff;
+  margin-bottom: 22px;
+  font-size: 14px;
+}
+
+.contact-form textarea {
+  min-height: 140px;
+  resize: none;
+}
+
+.contact-form button {
+  width: 100%;
+  padding: 14px;
+  border-radius: 14px;
+  border: none;
+  background: linear-gradient(135deg, #2563eb, #1A69FF);
+  color: #fff;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 0 0 35px rgba(37,99,235,.6);
+  transition: transform .3s ease;
+}
+
+.contact-form button:hover {
+  transform: translateY(-3px);
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  padding: 80px 60px 40px;
+  background: linear-gradient(180deg, rgba(2,6,23,.95), #020617);
+  border-top: 1px solid rgba(148,163,184,.1);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 50px;
+}
+
+/* BRAND */
+.footer-brand img {
+  width: 42px;
+  margin-bottom: 18px;
+}
+
+.footer-brand h3 {
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.footer-brand p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #cbd5f5;
+  max-width: 340px;
+}
+
+/* FOOTER LINKS */
+.footer h4 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-links a {
+  font-size: 14px;
+  color: #cbd5f5;
+  transition: color .3s ease;
+}
+
+.footer-links a:hover {
+  color: #3b82f6;
+}
+
+/* SOCIAL */
+.footer-social {
+  display: flex;
+  gap: 14px;
+}
+
+.footer-social a {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(15,23,42,.8);
+  border: 1px solid rgba(148,163,184,.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: all .3s ease;
+}
+
+.footer-social a:hover {
+  background: linear-gradient(135deg, #2563eb, #1A69FF);
+  box-shadow: 0 0 25px rgba(37,99,235,.5);
+}
+
+/* FOOTER BOTTOM */
+.footer-bottom {
+  border-top: 1px solid rgba(148,163,184,.1);
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  color: #94a3b8;
+}
+
+.footer-bottom span {
+  color: #3b82f6;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="bg-photo"></div>
+<div class="bg-neural"></div>
+
+<!-- NAV -->
+<div class="navbar">
+  <div class="brand">
+    <img src="assets/logo.png">
+    <h3>Sciedutech<span style="color:#1A69FF">.id</span></h3>
+  </div>
+
+  <div class="nav-links">
+    <a id="authBtn" class="nav-btn" href="login.html">Get Started</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">✨ Welcome to the Future of Education</div>
+    <h1>Sciedutech.id</h1>
+    <h2>Growth and Create with AI</h2>
+    <p>
+      An AI-Powered Platform for Education, Research, and Digital Innovation.
+      Empowering students, researchers, and creators with next-generation tools.
+    </p>
+    <div class="hero-actions">
+      <a class="btn-primary" href="#classes">Explore Classes</a>
+      <a class="btn-outline" href="#contact">Contact Us →</a>
+    </div>
+  </div>
+</section>
+
+<!-- OUR CLASSES -->
+<section class="classes-section" id="classes">
+
+  <div class="classes-header">
+    <div>
+      <span class="classes-label">EDUCATIONAL PATHS</span>
+      <h2>Our Classes</h2>
+    </div>
+    <p class="classes-desc">
+      Specialized curriculum designed for the future of technology and science.
+    </p>
+  </div>
+
+    <div class="classes-grid">
+      <div class="class-card">
+      <div class="class-icon">⚛️</div>
+      <h3>Science</h3>
+      <p>Explore the fundamental laws of nature, from physics to biology.</p>
+      <button
+        type="button"
+        class="class-btn"
+        data-class="kelas-sains.html">
+        Join Class
+      </button>
+
+    </div>
+
+    <div class="class-card">
+      <div class="class-icon">🧮</div>
+      <h3>Mathematics</h3>
+      <p>Master complex concepts, calculus, and statistical analysis.</p>
+      <button class="class-btn" data-class="kelas-math.html">Join Class</button>
+    </div>
+
+    <div class="class-card">
+      <div class="class-icon">📈</div>
+      <h3>Crypto & Stock</h3>
+      <p>Understand the world of stock market, cryptocurrency, trading, and digital assets.</p>
+      <button class="class-btn" data-class="kelas-kripto.html">Join Class</button>
+    </div>
+
+    <div class="class-card">
+      <div class="class-icon">🌐</div>
+      <h3>Blockchain</h3>
+      <p>Deep dive into decentralized technologies and smart contracts.</p>
+      <button class="class-btn" data-class="kelas-blockchain.html">Join Class</button>
+
+    </div>
+
+    <div class="class-card">
+      <div class="class-icon">🔒</div>
+      <h3>Cybersecurity</h3>
+      <p>Learn how to protect digital assets and secure networks.</p>
+      <button class="class-btn" data-class="kelas-cybersecurity.html">Join Class</button>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- OUR SERVICES -->
+<section class="services-section">
+
+  <h2>Our Services</h2>
+  <p class="services-subtitle">
+    Comprehensive digital solutions tailored for the education and technology sectors.
+  </p>
+
+  <!-- ROW 1 -->
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">⟨⟩</div>
+      <h3>Web & App Development</h3>
+      <p>
+        Custom digital solutions built with modern technologies.
+      </p>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">⚙️</div>
+      <h3>AI Integration</h3>
+      <p>
+        Seamless integration of AI capabilities into existing systems.
+      </p>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">🗄️</div>
+      <h3>Education Systems</h3>
+      <p>
+        Robust information systems for schools and universities.
+      </p>
+    </div>
+  </div>
+
+  <!-- ROW 2 -->
+  <div class="services-grid secondary">
+    <div class="service-card">
+      <div class="service-icon">🌐</div>
+      <h3>Public Digitalization</h3>
+      <p>
+        Digital transformation services for public institutions.
+      </p>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">💡</div>
+      <h3>Research Consulting</h3>
+      <p>
+        Expert guidance for academic and industrial research.
+      </p>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- GET IN TOUCH -->
+<section class="contact-section" id="contact">
+  <div class="contact-header">
+    <h2>Get in Touch</h2>
+    <p>Have questions or want to collaborate? We'd love to hear from you.</p>
+  </div>
+
+  <div class="contact-grid">
+
+    <!-- LEFT -->
+    <div class="contact-info">
+      <div class="contact-item">
+        <div class="contact-icon">✉️</div>
+        <div>
+          <h4>Email Us</h4>
+          <p>Our friendly team is here to help.</p>
+          <a href="mailto:sciedugame@gmail.com">sciedugame@gmail.com</a>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-icon">📍</div>
+        <div>
+          <h4>Office</h4>
+          <p>Come say hello at our office HQ.</p>
+          <p>Dungus Highway, Sukodono District, Sidoarjo Regency, East Java, 61258</p>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-icon">📞</div>
+        <div>
+          <h4>Phone</h4>
+          <p>Mon–Fri from 8am to 5pm.</p>
+          <p>+62 (085) 748-175548</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT FORM -->
+    <form class="contact-form">
+      <label>Full Name</label>
+      <input type="text" placeholder="Input your name">
+
+      <label>Email Address</label>
+      <input type="email" placeholder="your email@example.com">
+
+      <label>Message</label>
+      <textarea placeholder="Tell us about your project..."></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+
+  <div class="footer-grid">
+
+    <!-- BRAND -->
+    <div class="footer-brand">
+      <img src="assets/logo.png" alt="Sciedutech Logo">
+      <h3>Sciedutech<span style="color:#1A69FF">.id</span></h3>
+      <p>
+        Sciedutech.id is a technology-driven platform focused on artificial intelligence,
+        education, research, and smart digital solutions.
+      </p>
+    </div>
+
+    <!-- PLATFORM -->
+    <div>
+      <h4>Platform</h4>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="#">AI Tools</a>
+        <a href="#">Services</a>
+        <a href="company-profile.html">About Us & Company profile</a>
+      </div>
+    </div>
+
+    <!-- LEGAL -->
+    <div>
+      <h4>Legal</h4>
+      <div class="footer-links">
+        <a href="terms-privacy.html">Terms of Service</a>
+        <a href="terms-privacy.html">Privacy Policy</a>
+        <a href="terms-privacy.html">Cookie Policy</a>
+      </div>
+    </div>
+
+    <!-- CONNECT -->
+    <div>
+      <h4>Connect</h4>
+      <div class="footer-social">
+        <a href="https://x.com/sciedutech_id" title="Twitter">✖️</a>
+        <a href="https://www.instagram.com/sciedutech.id/" title="Instagram">📷</a>
+        <a href="#" title="LinkedIn">💼</a>
+        <a href="https://github.com/sciedutech-ai/" title="GitHub">📁</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- BOTTOM -->
+  <div class="footer-bottom">
+    <p>© 2025 Sciedutech.id. All rights reserved.</p>
+    <p><span>Growth and Create with AI</span></p>
+  </div>
+
+</footer>
+
+<script>
+document.querySelectorAll(".class-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    window.location.href = btn.dataset.class;
+  });
+});
+</script>
+
+</body>
+</html>

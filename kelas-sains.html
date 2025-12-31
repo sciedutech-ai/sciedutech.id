@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Kelas Sains | Sciedutech.id</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{
+      font-family:'Inter',sans-serif;
+      background:#020617;
+      color:#e5e7eb;
+      line-height:1.7
+    }
+    .container{
+      max-width:1100px;
+      margin:auto;
+      padding:80px 24px
+    }
+    h1{
+      font-size:46px;
+      font-weight:800;
+      text-align:center
+    }
+    .tagline{
+      text-align:center;
+      margin-top:16px;
+      font-size:18px;
+      color:#c7d2fe
+    }
+    .badges{
+      text-align:center;
+      margin-top:28px
+    }
+    .badge{
+      display:inline-block;
+      margin:6px;
+      padding:8px 14px;
+      border-radius:999px;
+      background:rgba(59,130,246,.15);
+      border:1px solid rgba(59,130,246,.3);
+      font-size:14px
+    }
+    .section{
+      margin-top:90px
+    }
+    .section h2{
+      font-size:32px;
+      font-weight:800;
+      margin-bottom:24px
+    }
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:24px
+    }
+    .card{
+      background:rgba(15,23,42,.7);
+      border:1px solid rgba(148,163,184,.15);
+      border-radius:20px;
+      padding:28px
+    }
+    .card h3{
+      margin-bottom:12px
+    }
+    ul{margin-left:18px}
+    li{margin-bottom:8px;color:#cbd5f5}
+    table{
+      width:100%;
+      border-collapse:collapse;
+      margin-top:20px
+    }
+    th,td{
+      padding:14px;
+      border-bottom:1px solid rgba(148,163,184,.2)
+    }
+    th{color:#93c5fd;text-align:left}
+    .center{
+      text-align:center;
+      margin-top:60px
+    }
+    button{
+      padding:16px 30px;
+      border-radius:14px;
+      border:none;
+      font-size:16px;
+      font-weight:700;
+      cursor:pointer;
+      background:#3b82f6;
+      color:#fff
+    }
+    #statusText{
+      text-align:center;
+      margin-top:40px;
+      font-size:16px;
+      color:#94a3b8
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <h1>Kelas Sains – Sciedutech.id</h1>
+  <p class="tagline">
+    <em>Explore Science. Think Critically. Build the Future with AI.</em>
+  </p>
+
+  <div class="badges">
+    <span class="badge">SMP – SMA – Mahasiswa Awal – Umum</span>
+    <span class="badge">Durasi 12 Minggu</span>
+    <span class="badge">AI-Assisted Learning</span>
+  </div>
+
+  <!-- STATUS TOKEN (WAJIB ADA) -->
+  <p id="statusText">Memeriksa akses...</p>
+
+  <!-- JIKA SUDAH PUNYA TOKEN -->
+  <div id="aksesKelas" class="center" style="display:none;">
+    <a href="materi-sains.html">
+      <button>Masuk Kelas</button>
+    </a>
+  </div>
+
+  <!-- JIKA BELUM PUNYA TOKEN -->
+  <div id="beliKelas" class="center" style="display:none;">
+    <a href="https://app.midtrans.com/payment-links/1766017753539" target="_blank">
+      <button>Beli Kelas Sains</button>
+    </a>
+  </div>
+
+  <!-- TUJUAN -->
+  <div class="section">
+    <h2>🎯 Tujuan Pembelajaran</h2>
+    <div class="grid">
+      <div class="card">
+        <ul>
+          <li>Memahami konsep dasar fisika, kimia, dan biologi</li>
+          <li>Menerapkan sains dalam kehidupan nyata</li>
+          <li>Mengolah data ilmiah dengan komputasi</li>
+        </ul>
+      </div>
+      <div class="card">
+        <ul>
+          <li>Memahami peran AI dalam sains modern</li>
+          <li>Menyusun mini riset ilmiah</li>
+          <li>Berpikir kritis & berbasis data</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- STRUKTUR MODUL -->
+  <div class="section">
+    <h2>🧠 Struktur Modul (12 Minggu)</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Modul 1–3</h3>
+        <ul>
+          <li>Pengantar Sains & Metode Ilmiah</li>
+          <li>Fisika Dasar</li>
+          <li>Fisika Terapan</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Modul 4–7</h3>
+        <ul>
+          <li>Kimia Dasar & Terapan</li>
+          <li>Biologi Dasar</li>
+          <li>Bioteknologi</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Modul 8–12</h3>
+        <ul>
+          <li>Data Science & AI</li>
+          <li>Computational Science</li>
+          <li>Riset & Proyek Akhir</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- AI -->
+  <div class="section">
+    <h2>🤖 Integrasi AI</h2>
+    <div class="grid">
+      <div class="card"><ul>
+        <li>AI Tutor interaktif</li>
+        <li>AI pembantu riset</li>
+        <li>AI analisis data</li>
+      </ul></div>
+      <div class="card"><ul>
+        <li>AI feedback tugas</li>
+        <li>Rekomendasi materi lanjutan</li>
+      </ul></div>
+    </div>
+  </div>
+
+  <!-- EVALUASI -->
+  <div class="section">
+    <h2>🏅 Sistem Evaluasi</h2>
+    <table>
+      <tr><th>Komponen</th><th>Bobot</th></tr>
+      <tr><td>Kuis & Latihan</td><td>25%</td></tr>
+      <tr><td>Praktikum</td><td>25%</td></tr>
+      <tr><td>Proyek</td><td>30%</td></tr>
+      <tr><td>Partisipasi</td><td>20%</td></tr>
+    </table>
+  </div>
+
+</div>
+
+<!-- SCRIPT TOKEN (WAJIB) -->
+<script type="module" src="js/kelas-sains.js"></script>
+
+</body>
+</html>
