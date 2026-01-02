@@ -1,94 +1,35 @@
-// ===============================
-// FIREBASE AUTH (LOGIN & REGISTER)
-// ===============================
-
-// 1. IMPORT FIREBASE
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { auth, db } from "./firebase.js";
 import {
-  getAuth,
-  createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  signOut,
-  onAuthStateChanged
+  createUserWithEmailAndPassword
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+import {
+  doc,
+  getDoc,
+  setDoc
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-// 2. KONFIGURASI FIREBASE
-const firebaseConfig = {
-  apiKey: "AIzaSyA7_DlF7cuWjT6T3dIfQq0BCLeuKIcyFrQ",
-  authDomain: "sciedutech-platform.firebaseapp.com",
-  projectId: "sciedutech-platform",
-  appId: "1:548051165082:web:281d741d46277ff4432423"
-};
-
-// 3. INIT FIREBASE
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-
-// ===============================
-// REGISTER
-// ===============================
-window.register = function () {
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
-
-  if (!email || !password) {
-    alert("Email dan password wajib diisi");
-    return;
-  }
-
-  createUserWithEmailAndPassword(auth, email, password)
-    .then(() => {
-      alert("Registrasi berhasil, silakan login");
-      window.location.href = "login.html";
-    })
-    .catch((error) => {
-      alert(error.message);
-    });
-};
-
-// ===============================
 // LOGIN
-// ===============================
-window.login = function () {
+window.login = async function () {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
-  if (!email || !password) {
-    alert("Email dan password wajib diisi");
-    return;
+  const cred = await signInWithEmailAndPassword(auth, email, password);
+  const user = cred.user;
+
+  const ref = doc(db, "users", user.uid);
+  const snap = await getDoc(ref);
+
+  if (!snap.exists()) {
+    await setDoc(ref, {
+      email: user.email,
+      kelas: [],
+      createdAt: new Date()
+    });
   }
 
-  signInWithEmailAndPassword(auth, email, password)
-    .then(() => {
-      window.location.href = "index.html";
-    })
-    .catch((error) => {
-      alert(error.message);
-    });
-};
+  const target = localStorage.getItem("targetClass");
+  localStorage.removeItem("targetClass");
 
-// ===============================
-// CEK AUTH (PROTECT PAGE)
-// ===============================
-window.checkAuth = function () {
-  onAuthStateChanged(auth, (user) => {
-    if (!user) {
-      window.location.href = "login.html";
-    }
-  });
+  window.location.href = target || "index.html";
 };
-
-// ===============================
-// LOGOUT
-// ===============================
-window.logout = function () {
-  signOut(auth)
-    .then(() => {
-      alert("Logout berhasil");
-      window.location.href = "login.html";
-    })
-    .catch((error) => {
-      alert(error.message);
-    });
-};
-export { auth };
