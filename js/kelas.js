@@ -1,31 +1,22 @@
 import { auth } from "./firebase.js";
-import {
-  getFirestore,
-  doc,
-  getDoc
-} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { onAuthStateChanged } from
+  "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
-const db = getFirestore();
+document.addEventListener("DOMContentLoaded", () => {
+  const buttons = document.querySelectorAll(".class-btn");
 
-auth.onAuthStateChanged(async (user) => {
-  if (!user) {
-    window.location.href = "login.html";
-    return;
-  }
+  onAuthStateChanged(auth, (user) => {
+    buttons.forEach(btn => {
+      btn.onclick = () => {
+        const target = btn.dataset.class;
 
-  const userRef = doc(db, "users", user.uid);
-  const userSnap = await getDoc(userRef);
-
-  if (!userSnap.exists() || !userSnap.data().hasAccess) {
-    alert("❌ Anda belum memiliki akses kelas");
-    window.location.href = "token.html";
-    return;
-  }
-
-  // OPTIONAL: CEK KELAS
-  const kelas = userSnap.data().kelas;
-  if (kelas !== "sains") {
-    alert("❌ Token Anda bukan untuk kelas ini");
-    window.location.href = "index.html";
-  }
+        if (user) {
+          window.location.href = target;
+        } else {
+          localStorage.setItem("targetClass", target);
+          window.location.href = "login.html";
+        }
+      };
+    });
+  });
 });
